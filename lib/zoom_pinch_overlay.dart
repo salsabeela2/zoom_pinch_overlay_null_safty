@@ -237,11 +237,12 @@ class _ZoomOverlayState extends State<ZoomOverlay>
     );
   }
 
+  //null safety fix
   Future<void> show() async {
     if (!_isZooming) {
       final overlayState = Overlay.of(context);
       _overlayEntry = OverlayEntry(builder: _build);
-      overlayState.insert(_overlayEntry!);
+      overlayState?.insert(_overlayEntry!);
     }
   }
 
